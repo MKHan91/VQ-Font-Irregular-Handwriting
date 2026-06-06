@@ -1,0 +1,46 @@
+use_half: False
+use_ddp: False
+port: 7890
+
+work_dir: ./vq_font_results
+data_path: /home/dev/Project/VQ-Font/datasets/handwrite_dataset_v3/lmdb/  # path/to/saved/lmdb
+data_meta: /home/dev/Project/VQ-Font/datasets/handwrite_dataset_v3/meta/train.json  # meta/train.json
+content_reference_json: /home/dev/Project/VQ-Font/build_dataset/cr_mapping_v2.json
+structure_tags_path: /home/dev/Project/VQ-Font/build_dataset/structure_tags.json
+cr_mapping_path: /home/dev/Project/VQ-Font/build_dataset/cr_mapping_v2.json
+de_path: /home/dev/Project/VQ-Font/build_dataset/de_v2.json
+content_font: "NanumBarunpenR"
+
+input_size: 128
+num_heads: 8
+kshot: 3
+
+batch_size: 32
+# batch_size: 16
+n_workers: 0
+iter: 1500001
+g_lr: 2e-4
+d_lr: 8e-4
+# g_lr: 1e-4
+# d_lr: 4e-4
+
+step_size: 5000
+# step_size: 1000
+g_gamma: 0.95
+d_gamma: 0.98
+overwrite: False
+adam_betas: [0.0, 0.9]
+
+cv_n_unis: 30 # 30
+cv_n_fonts: 10 # 10
+
+print_freq: 1
+# val_freq: 10000
+# save_freq: 10000
+# tb_freq: 10000
+
+# val_freq: 250
+# tb_freq: 250
+val_freq: 1000
+save_freq: 10000
+tb_freq: 1000
