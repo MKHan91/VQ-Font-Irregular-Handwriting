@@ -1,0 +1,14 @@
+omegaconf
+lmdb >= 1.2.1
+lpips
+protobuf==3.20.*
+pytorch-lightning==1.9.0
+einops
+albumentations
+pywavelets==1.8.2
+tensorboard
+
+
+pip install --no-cache-dir numpy scikit-image opencv-python
+pip install --no-cache-dir --upgrade scikit-image
+pip install --no-cache-dir matplotlib

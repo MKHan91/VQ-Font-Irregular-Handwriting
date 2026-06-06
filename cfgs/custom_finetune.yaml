@@ -1,0 +1,40 @@
+use_half: False
+use_ddp: False
+
+work_dir: ./vq_font_results
+data_path: /home/dev/Project/VQ-Font/datasets/handwrite_dataset_v3/lmdb/
+data_meta: /home/dev/Project/VQ-Font/datasets/handwrite_dataset_v3/meta/train.json
+content_reference_json: /home/dev/Project/VQ-Font/build_dataset/cr_mapping_v2.json
+structure_tags_path: /home/dev/Project/VQ-Font/build_dataset/structure_tags.json
+cr_mapping_path: /home/dev/Project/VQ-Font/build_dataset/cr_mapping_v2.json
+de_path: /home/dev/Project/VQ-Font/build_dataset/de_v2.json
+content_font: "NanumBarunpenR"
+
+input_size: 128
+num_heads: 8
+kshot: 3
+
+batch_size: 16        
+n_workers: 0
+iter: 50000          # 짧게
+g_lr: 2e-5           # 1/10으로 줄임
+d_lr: 8e-5
+
+step_size: 2000
+g_gamma: 0.95
+d_gamma: 0.98
+overwrite: False
+adam_betas: [0.0, 0.9]
+
+cv_n_unis: 10
+cv_n_fonts: 1        # 붓글씨 폰트 1개
+
+val_freq: 1000
+save_freq: 5000
+tb_freq: 500
+
+# losses
+gan_w: 0.1           
+style_w: 5.0         # 붓글씨 스타일 강하게
+language: "kor"
+save: all-last
