@@ -163,7 +163,7 @@
 ## 4. 추론 파이프라인
 
 ### 4-1. 진입점
-- **스크립트**: [inference.py](inference.py) (실행 도우미 [infer_vqfont.sh](infer_vqfont.sh))
+- **스크립트**: [inference.py](inference.py)
 - **기본 인자**
   - `--weight`: `vq_font_results/checkpoints/brush_finetune_v2/last.ckpt`
   - `--content_font`: `datasets/content_font_image/NanumBarunpenR` (글자 골격 공급)
@@ -295,7 +295,7 @@ datasets/
 - 모델: [taming/models/](taming/models)
 
 ### 8-2. Stage 1·2 공통 (VQ-Font 학습)
-- 진입점: [train.py](train.py), [train_vqfont.sh](train_vqfont.sh)
+- 진입점: [train.py](train.py)
 - 트레이너: [trainer/combined_trainer.py](trainer/combined_trainer.py), [trainer/base_trainer.py](trainer/base_trainer.py)
 - 모델: [models/generator.py](models/generator.py), [models/comp_encoder.py](models/comp_encoder.py), [models/content_encoder.py](models/content_encoder.py), [models/former.py](models/former.py), [models/memory.py](models/memory.py), [models/decoder.py](models/decoder.py), [models/vq.py](models/vq.py), [models/discriminator.py](models/discriminator.py)
 - 공통 설정: [cfgs/defaults.yaml](cfgs/defaults.yaml)
@@ -314,7 +314,7 @@ datasets/
 - 입력 데이터: `datasets/train_font_image/reference_images_v2/` (사용자 손글씨 78자)
 
 ### 8-5. 추론
-- 진입점: [inference.py](inference.py), [infer_vqfont.sh](infer_vqfont.sh), [cfgs/custom_infer.yaml](cfgs/custom_infer.yaml)
+- 진입점: [inference.py](inference.py), [cfgs/custom_infer.yaml](cfgs/custom_infer.yaml)
 - 평가기: [evaluator.py](evaluator.py)
 - 출력 위치: `inference_results/target_style_images/<reference_폴더명>/images/<글자>.png`
 
