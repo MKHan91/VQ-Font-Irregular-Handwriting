@@ -12,11 +12,12 @@ logs/
 *.pyc
 *.tar.gz
 vq_font_results
+*.svg
 
 __pycache__
 datasets/handwrite_dataset_v2
 taming/experiments
-*.png
+
 VQ-Font
 inference_results
 *.zip
