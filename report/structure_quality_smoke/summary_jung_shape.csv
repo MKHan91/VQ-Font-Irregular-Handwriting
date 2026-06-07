@@ -1,0 +1,2 @@
+group,count,ink_ratio_mean,ink_ratio_std,ink_ratio_count,bbox_fill_mean,bbox_fill_std,bbox_fill_count,edge_density_mean,edge_density_std,edge_density_count,psnr_mean,psnr_std,psnr_count,ssim_mean,ssim_std,ssim_count
+horizontal,200,0.13395843505859376,0.018415651345015674,200,0.69315673828125,0.06046776702978905,200,0.13419158935546874,0.021899207461859332,200,16.974823224843217,7.714514428707991,4,0.7702751709192726,0.1893678776776021,4
