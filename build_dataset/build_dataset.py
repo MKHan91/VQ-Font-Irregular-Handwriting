@@ -37,6 +37,8 @@ def save_lmdb(env_path, font_path_char_dict):
             unilist.append(uni)
             #grey image
             char_img = cv2.imread(img_path, 0)
+            if char_img is None:
+                raise FileNotFoundError(f"이미지를 읽지 못했습니다: {img_path} (font={fname}, char={char!r})")
             #char_img = cv2.resize(char_img, (128, 128))
 
             char_img = Image.fromarray(char_img)

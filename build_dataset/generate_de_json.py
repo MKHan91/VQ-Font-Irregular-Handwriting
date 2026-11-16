@@ -120,7 +120,7 @@ def verify_de_json(json_path='de.json'):
 
 
 if __name__ == "__main__":
-    # train_data_dir = "/home/dev/Project/VQ-Font/datasets/train_font_image"
+    # train_data_dir = "/home/sona/VQ-Font-Irregular-Handwriting/datasets/train_font_image"
     
     # train_names = []
     # for folderName in os.listdir(train_data_dir):

@@ -6,8 +6,8 @@ import random
 
 
 
-# train_data_dir = "/home/dev/Project/VQ-Font/datasets/train_font_image"
-# valid_data_dir = "/home/dev/Project/VQ-Font/datasets/valid_font_image"
+# train_data_dir = "/home/sona/VQ-Font-Irregular-Handwriting/datasets/train_font_image"
+# valid_data_dir = "/home/sona/VQ-Font-Irregular-Handwriting/datasets/valid_font_image"
 
 # train_names = []
 # valid_names = []

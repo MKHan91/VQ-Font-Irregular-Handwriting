@@ -2,12 +2,12 @@ use_half: False
 use_ddp: False
 
 work_dir: ./vq_font_results
-data_path: /home/dev/Project/VQ-Font/datasets/handwrite_dataset_v3/lmdb/
-data_meta: /home/dev/Project/VQ-Font/datasets/handwrite_dataset_v3/meta/train.json
-content_reference_json: /home/dev/Project/VQ-Font/build_dataset/cr_mapping_v2.json
-structure_tags_path: /home/dev/Project/VQ-Font/build_dataset/structure_tags.json
-cr_mapping_path: /home/dev/Project/VQ-Font/build_dataset/cr_mapping_v2.json
-de_path: /home/dev/Project/VQ-Font/build_dataset/de_v2.json
+data_path: /home/sona/VQ-Font-Irregular-Handwriting/datasets/handwrite_dataset_v3/lmdb/
+data_meta: /home/sona/VQ-Font-Irregular-Handwriting/datasets/handwrite_dataset_v3/meta/train.json
+content_reference_json: /home/sona/VQ-Font-Irregular-Handwriting/build_dataset/cr_mapping_v2.json
+structure_tags_path: /home/sona/VQ-Font-Irregular-Handwriting/build_dataset/structure_tags.json
+cr_mapping_path: /home/sona/VQ-Font-Irregular-Handwriting/build_dataset/cr_mapping_v2.json
+de_path: /home/sona/VQ-Font-Irregular-Handwriting/build_dataset/de_v2.json
 content_font: "NanumBarunpenR"
 
 input_size: 128

@@ -1,9 +1,9 @@
 #! /bin/bash
 
-backups_dir="/home/dev/Project/VQ-Font/vq_font_results/checkpoints"
-codes_dir="/home/dev/Project/VQ-Font/vq_font_results/codes"
-logs_dir="/home/dev/Project/VQ-Font/vq_font_results/logs"
-models_dir="/home/dev/Project/VQ-Font/vq_font_results/runs"
+backups_dir="/home/sona/VQ-Font-Irregular-Handwriting/vq_font_results/checkpoints"
+codes_dir="/home/sona/VQ-Font-Irregular-Handwriting/vq_font_results/codes"
+logs_dir="/home/sona/VQ-Font-Irregular-Handwriting/vq_font_results/logs"
+models_dir="/home/sona/VQ-Font-Irregular-Handwriting/vq_font_results/runs"
 
 model_name="brush_finetune_v2"
 rm -rf ${backups_dir}/${model_name}

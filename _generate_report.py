@@ -204,6 +204,6 @@ for fname, result in checks:
     pdf.table_row(fname, result)
 
 # ═══ 저장 ═══
-output_path = '/home/dev/Project/VQ-Font/vqfont_finetune_report.pdf'
+output_path = '/home/sona/VQ-Font-Irregular-Handwriting/vqfont_finetune_report.pdf'
 pdf.output(output_path)
 print(f'PDF 저장 완료: {output_path}')

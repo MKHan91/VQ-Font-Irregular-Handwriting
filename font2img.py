@@ -9,9 +9,9 @@ from fontTools.ttLib import TTFont
 
 
 parser = argparse.ArgumentParser(description='Obtaining characters from .ttf')
-parser.add_argument('--ttf_path', type=str, default='/home/dev/Project/VQ-Font/datasets/additional_train_font_ttf',help='ttf directory')
+parser.add_argument('--ttf_path', type=str, default='/home/sona/VQ-Font-Irregular-Handwriting/datasets/additional_train_font_ttf',help='ttf directory')
 parser.add_argument('--chara', type=str, default='./total_korean.txt',help='characters')
-parser.add_argument('--save_path', type=str, default='/home/dev/Project/VQ-Font/datasets/train_font_image',help='images directory')
+parser.add_argument('--save_path', type=str, default='/home/sona/VQ-Font-Irregular-Handwriting/datasets/train_font_image',help='images directory')
 parser.add_argument('--img_size', type=int, default=128, help='The size of generated images')
 parser.add_argument('--chara_size', type=int, default=120, help='The size of generated characters')
 args = parser.parse_args()

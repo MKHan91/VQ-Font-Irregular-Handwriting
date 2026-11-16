@@ -34,18 +34,19 @@ data:
     train:
       target: taming.data.custom.CustomTrain
       params:
-        training_images_list_file: /home/dev/Project/VQ-Font/vqgan_data/train_custom_v2.txt
+        training_images_list_file: /home/sona/VQ-Font-Irregular-Handwriting/vqgan_data/train_custom_v2.txt
         size: 128
     validation:
       target: taming.data.custom.CustomTest
       params:
-        test_images_list_file: /home/dev/Project/VQ-Font/vqgan_data/valid_custom_v2.txt
+        test_images_list_file: /home/sona/VQ-Font-Irregular-Handwriting/vqgan_data/valid_custom_v2.txt
         size: 128
 
 lightning:
   trainer:
     accelerator: "gpu"
-    devices: 1
+    # devices: 1
+    devices: 0
     # gpus: "0"  # 0번 GPU 사용
 
-ckpt_path: /home/dev/Project/VQ-Font/taming/experiments/checkpoints/2026-01-11T10-58-28_custom_vqgan/epoch=000781.ckpt
+ckpt_path: /home/sona/VQ-Font-Irregular-Handwriting/taming/experiments/checkpoints/2026-01-11T10-58-28_custom_vqgan/epoch=000781.ckpt

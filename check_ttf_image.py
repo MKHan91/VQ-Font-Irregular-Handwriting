@@ -5,7 +5,7 @@ from glob import glob
 from PIL import ImageFont, Image, ImageDraw
 from fontTools.ttLib import TTFont
 
-train_font_dir = r"/home/dev/VQ-Font/datasets/train_font_image"
+train_font_dir = r"/home/sona/VQ-Font-Irregular-Handwriting/datasets/train_font_image"
 font_dict = {}
 for folderName in os.listdir(train_font_dir):
     if 'UhBee' not in folderName: continue

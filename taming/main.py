@@ -62,7 +62,7 @@ def get_parser(**parser_kwargs):
         metavar="base_config.yaml",
         help="paths to base configs. Loaded from left-to-right. "
         "Parameters can be overwritten or added with command-line options of the form `--key value`.",
-        default=["/home/dev/Project/VQ-Font/vqgan/custom_vqgan.yaml"],
+        default=["/home/sona/VQ-Font-Irregular-Handwriting/vqgan/custom_vqgan.yaml"],
     )
     parser.add_argument(
         "-t",

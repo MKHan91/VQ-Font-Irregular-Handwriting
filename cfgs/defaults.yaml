@@ -12,8 +12,8 @@ init: kaiming
 # content_font: "NanumBarunpenR"
 language: "kor"
 
-# data_path: /home/dev/VQ-Font/datasets/handwrite_dataset/lmdb
-# data_meta: /home/dev/VQ-Font/datasets/handwrite_dataset/meta/train.json
+# data_path: /home/sona/VQ-Font-Irregular-Handwriting/datasets/handwrite_dataset/lmdb
+# data_meta: /home/sona/VQ-Font-Irregular-Handwriting/datasets/handwrite_dataset/meta/train.json
 
 dset_aug:
   normalize: True

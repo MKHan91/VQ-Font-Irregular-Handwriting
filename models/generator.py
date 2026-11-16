@@ -1,3 +1,4 @@
+import os  # [RK-PATCH]
 import math
 import torch
 import torch.nn as nn
@@ -35,7 +36,7 @@ class Generator(nn.Module):
     """
     def __init__(self, C_in, C, C_out, cfg, comp_enc, dec, content_enc):
         super().__init__()
-        configs = [OmegaConf.load(cfg) for cfg in ['/home/dev/Project/VQ-Font/vqgan/custom_vqgan.yaml']]
+        configs = [OmegaConf.load(cfg) for cfg in ['/home/sona/VQ-Font-Irregular-Handwriting/vqgan/custom_vqgan.yaml']]
         config = OmegaConf.merge(*configs, {})
         model = instantiate_from_config(config.model)
         model.init_from_ckpt(config.ckpt_path) # VQ-GAN 모델 호출
@@ -120,7 +121,7 @@ class Generator(nn.Module):
 
         # Style latent Augmentation - 학습 시에만 적용
         if self.training:
-            noise_strength = 0.03  # 낮은 노이즈 강도 (작은 데이터셋에 맞게 조정)
+            noise_strength = float(os.environ.get("RK_LATENT_SIGMA", "0.03"))  # [RK-PATCH] sigma
             style_latent_aug = style_latent + noise_strength * torch.randn_like(style_latent)
             style_latent_crose_aug = style_latent_crose + noise_strength * torch.randn_like(style_latent_crose)
             style_latent_fine_aug = style_latent_fine + noise_strength * torch.randn_like(style_latent_fine)

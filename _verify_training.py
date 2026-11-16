@@ -3,7 +3,7 @@ import torch
 import os
 import sys
 
-ckpt_dir = '/home/dev/Project/VQ-Font/vq_font_results/checkpoints/brush_finetune_v2'
+ckpt_dir = '/home/sona/VQ-Font-Irregular-Handwriting/vq_font_results/checkpoints/brush_finetune_v2'
 
 # 1. 파일 크기 확인
 print("=" * 60)
@@ -108,7 +108,7 @@ print("\n" + "=" * 60)
 print("5. 학습 로그 확인")
 print("=" * 60)
 log_dirs = [
-    '/home/dev/Project/VQ-Font/vq_font_results/logs/',
+    '/home/sona/VQ-Font-Irregular-Handwriting/vq_font_results/logs/',
 ]
 for log_dir in log_dirs:
     if os.path.exists(log_dir):

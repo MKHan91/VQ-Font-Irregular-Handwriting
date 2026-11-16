@@ -12,12 +12,12 @@ import lpips
 import json
 
 
-with open('/home/dev/Project/VQ-Font/build_dataset/structure_tags.json','r') as f:
+with open('/home/sona/VQ-Font-Irregular-Handwriting/build_dataset/structure_tags.json','r') as f:
     stru_map = json.load(f,strict=False)
 
-with open('/home/dev/Project/VQ-Font/build_dataset/cr_mapping_v2.json','r') as f:
+with open(os.environ.get("RK_CR_MAPPING", '/home/sona/VQ-Font-Irregular-Handwriting/build_dataset/cr_mapping_v2.json'),'r') as f:
     cr_map = json.load(f,strict=False)
-with open('/home/dev/Project/VQ-Font/build_dataset/de_v2.json','r') as f:
+with open('/home/sona/VQ-Font-Irregular-Handwriting/build_dataset/de_v2.json','r') as f:
     de = json.load(f,strict=False)
     
     
@@ -411,3 +411,5 @@ class Evaluator:
             # print("num_saved_img: ", len(ch_list_check))
         return output_folder
 
+
+# [RK-PATCH] crmap (1 literal(s) redirected)

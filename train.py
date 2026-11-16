@@ -51,9 +51,9 @@ def setup_args_and_config():
     parser = argparse.ArgumentParser()
     # parser.add_argument("--name", default="vq_font_v4.0")
     parser.add_argument("--name", default="brush_finetune_v2")
-    # parser.add_argument("--config_paths", nargs="+", default=["/home/dev/Project/VQ-Font/cfgs/custom.yaml"])
-    parser.add_argument("--config_paths", nargs="+", default=["/home/dev/Project/VQ-Font/cfgs/custom_finetune.yaml"])
-    parser.add_argument("--vq_gan_resume", default="/home/dev/Project/VQ-Font/taming/experiments/checkpoints/2026-01-11T10-58-28_custom_vqgan/epoch=000781.ckpt")
+    # parser.add_argument("--config_paths", nargs="+", default=["/home/sona/VQ-Font-Irregular-Handwriting/cfgs/custom.yaml"])
+    parser.add_argument("--config_paths", nargs="+", default=["/home/sona/VQ-Font-Irregular-Handwriting/cfgs/custom_finetune.yaml"])
+    parser.add_argument("--vq_gan_resume", default="/home/sona/VQ-Font-Irregular-Handwriting/taming/experiments/checkpoints/2026-01-11T10-58-28_custom_vqgan/epoch=000781.ckpt")
     parser.add_argument("--vq_font_resume", default="./vq_font_results/checkpoints/vq_font_v4.0/last.ckpt")
     parser.add_argument("--use_unique_name", default=False, action="store_true", help="whether to use name with timestamp")
 
@@ -202,9 +202,19 @@ def train(args, cfg, ddp_gpu=-1):
     #         param.requires_grad_(True)   # 디코더/트랜스포머만 학습
     
     # 인코더 동결: 가중치 로드 전에 모델만 로드하거나, 로드 후 옵티마이저를 새로 생성해야 합니다.
+    _rk_freeze = os.environ.get("RK_FREEZE", "encoders")  # [RK-PATCH] freeze
+    _rk_vq_keep = ("decoder.layers.0.", "decoder.layers.1.", "decoder.layers.2.", "post_quant_conv.")
     for name, param in gen.named_parameters():
-        if 'component_encoder' in name or 'content_encoder' in name:
+        if _rk_freeze in ("encoders", "strict") and ('component_encoder' in name or 'content_encoder' in name):
             param.requires_grad_(False)
+        if _rk_freeze == "strict" and name.startswith("vqgan.") and not name[len("vqgan."):].startswith(_rk_vq_keep):
+            param.requires_grad_(False)
+        if _rk_freeze == "none":
+            param.requires_grad_(True)
+    _rk_tr = [n for n, q in gen.named_parameters() if q.requires_grad]
+    print(f"[RK] freeze={_rk_freeze} trainable_tensors={len(_rk_tr)} trainable_params={sum(q.numel() for q in gen.parameters() if q.requires_grad)} total_params={sum(q.numel() for q in gen.parameters())}")
+    if os.environ.get("RK_TRAINABLE_LOG"):
+        open(os.environ["RK_TRAINABLE_LOG"], "w").write("\n".join(_rk_tr))
 
     # 체크포인트에서 모델 가중치만 로드 (optimizer 상태는 로드하지 않음)
     st_step = 1
@@ -268,6 +278,8 @@ def main():
     args, cfg = setup_args_and_config()
     np.random.seed(cfg["seed"])
     torch.manual_seed(cfg["seed"])
+    if os.environ.get("RK_PY_SEED"):  # [RK-PATCH] seed
+        import random as _r; _r.seed(int(os.environ["RK_PY_SEED"]))
     if cfg.use_ddp:
         ngpus_per_node = torch.cuda.device_count()
         world_size = ngpus_per_node 

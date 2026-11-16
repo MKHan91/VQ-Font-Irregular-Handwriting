@@ -1,0 +1,25 @@
+services:
+  Font:
+    image: vq-font-irregular-handwriting:myungkyu-261114
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: VQ-Font
+    stdin_open: true
+    tty: true
+    volumes:
+      - /home/myungkyu/Embodied-AI/VQ-Font-Irregular-Handwriting:/home/sona/VQ-Font-Irregular-Handwriting
+      - /data1/huggingface/datasets/VQ-Font-Irregular-Handwriting:/home/sona/Data
+
+    working_dir: /home/sona
+    command: /bin/bash -c "service ssh restart && tail -f /dev/null"
+    restart: "no"
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
